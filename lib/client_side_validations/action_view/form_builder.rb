@@ -95,7 +95,6 @@ module ClientSideValidations::ActionView::Helpers
       if @options[:validate]
         index = @default_options[:index].present? ? "[#{@default_options[:index]}]" : ''
         name = options[:name] || "#{@object_name}#{index}[#{method}]"
-        raise @options.inspect
         child_index = @options[:child_index] ? "(\\d+|#{Regexp.escape(@options[:child_index])})" : "\\d+"
         name = name.to_s.gsub(/_attributes\]\[#{child_index}\]/, '_attributes][]')
         name = "#{name}#{options[:multiple] ? "[]" : nil}"
